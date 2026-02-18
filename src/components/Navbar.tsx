@@ -13,6 +13,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <Link to="/" className="flex items-center gap-2 group">
           <img src="/IngeEdit.png" alt="IngeEdit Logo" className="h-8 w-auto transition-transform group-hover:scale-105" />
+          <img src="/textEditLogo1.png" alt="IngeEdit" className="h-6 w-auto transition-opacity group-hover:opacity-80" />
         </Link>
 
         {/* Desktop */}
