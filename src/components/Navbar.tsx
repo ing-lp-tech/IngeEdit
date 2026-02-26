@@ -29,11 +29,6 @@ const Navbar = () => {
               Iniciar Sesión
             </Button>
           </Link>
-          <Link to="/login">
-            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
-              Comenzar
-            </Button>
-          </Link>
         </div>
 
         {/* Mobile toggle */}
