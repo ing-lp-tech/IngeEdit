@@ -1,0 +1,63 @@
+Para que **IngeEdit** crezca con orden (como un buen plano de ingeniería), aquí tienes una guía de estilo y colaboración simplificada. No se trata de complicarse la vida, sino de que en seis meses, cuando vuelvan a leer el código, no se pregunten "¿quién escribió este lío?".
+
+---
+
+## 1. Nomenclatura de Archivos y Variables
+
+Como ingenieros, sabemos que el orden en los nombres ahorra horas de depuración.
+
+* **Variables y Funciones:** Usen `camelCase` (la primera palabra en minúscula, las siguientes en Mayúscula).
+* *Bien:* `calcularPrecioTotal()`, `listaDeClientes`
+* *Evitar:* `calcular_precio()`, `Listadeclientes`
+
+
+* **Clases:** Usen `PascalCase` (todas las palabras empiezan con Mayúscula).
+* *Ejemplo:* `EditorDeCorte`, `GestorDeArchivos`
+
+
+* **Idioma:** Elijan uno (español o inglés) y manténganlo en todo el proyecto. No mezclen `getUserName()` con `obtenerPrecio()`.
+
+---
+
+## 2. Los Commits (Mensajes de Guardado)
+
+El mensaje del commit es el historial clínico de tu proyecto. Usen el formato **Tipo: Descripción corta**.
+
+| Tipo | Cuándo usarlo | Ejemplo |
+| --- | --- | --- |
+| **feat** | Una nueva funcionalidad | `feat: agregar botón de exportar a PDF` |
+| **fix** | Arreglar un error (bug) | `fix: corregir error en el cálculo del IVA` |
+| **docs** | Cambios solo en la documentación | `docs: actualizar manual de instalación` |
+| **style** | Cambios visuales (CSS, espacios) | `style: cambiar color de fondo a azul Boca` |
+
+---
+
+## 3. Comentarios: Menos es Más
+
+No comenten *qué* hace el código (eso debería ser obvio por el nombre de la función), comenten el **porqué** de las decisiones complejas.
+
+> **Regla de oro:** Si una función es tan compleja que necesita un párrafo de explicación, quizás es mejor dividirla en dos funciones más simples.
+
+---
+
+## 4. Flujo de Trabajo en GitHub (El "Protocolo Familiar")
+
+Para evitar que uno pise el trabajo del otro:
+
+1. **Pull Diario:** Antes de escribir una sola línea, hagan `git pull`. Así siempre trabajan sobre lo último.
+2. **Ramas por Tarea:** Si tu hermano va a trabajar en la interfaz y tú en la lógica del plotter, usen ramas separadas:
+* `git checkout -b feat/interfaz-grafica`
+* `git checkout -b feat/logica-plotter`
+
+
+3. **Code Review "Mate de por medio":** Antes de unir una rama a `main`, tómense 5 minutos para ver el código del otro en GitHub. Es la mejor forma de aprender técnicas nuevas.
+
+---
+
+## 5. El Archivo `.gitignore`
+
+Asegúrense de no subir archivos innecesarios (carpetas `node_modules`, archivos temporales de Windows o configuraciones personales de Antigravity). Esto mantiene el repositorio liviano y profesional.
+
+---
+
+¿Te gustaría que te ayude a crear un archivo `CONTRIBUTING.md` para dejar estas reglas grabadas directamente en el repositorio de GitHub?
