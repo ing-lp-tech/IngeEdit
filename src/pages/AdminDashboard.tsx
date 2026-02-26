@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   Users, FolderOpen, CalendarDays, DollarSign, LogOut,
   ExternalLink, Clock, Edit3, Send, CheckCircle, Mail, MessageSquare,
-  UserCheck, UserX, ShieldCheck
+  UserCheck, UserX, ShieldCheck, Trash2
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
@@ -91,6 +91,18 @@ const AdminDashboard = () => {
   const togglePagado = async (id: string, currentValue: boolean) => {
     await supabase.from("finanzas").update({ pagado: !currentValue }).eq("id", id);
     setFinanzas(finanzas.map((f) => (f.id === id ? { ...f, pagado: !currentValue } : f)));
+  };
+
+  const deleteUsuario = async (id: string, nombre: string) => {
+    const confirmado = window.confirm(`¿Estás seguro de que querés eliminar a "${nombre}"? Esta acción no se puede deshacer.`);
+    if (!confirmado) return;
+    // Llama a la función SQL con permisos elevados que borra de auth.users (y cascadea a perfiles)
+    const { error } = await supabase.rpc("delete_user_by_admin", { user_id: id });
+    if (error) {
+      // Fallback: borrar solo de perfiles si la función RPC no existe aún
+      await supabase.from("perfiles").delete().eq("id", id);
+    }
+    setUsuarios(usuarios.filter((u) => u.id !== id));
   };
 
   const totalIngresos = finanzas.reduce((acc, f) => acc + Number(f.monto_total), 0);
@@ -222,6 +234,14 @@ const AdminDashboard = () => {
                         ) : (
                           <><UserCheck className="h-3 w-3" /> Activar</>
                         )}
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => deleteUsuario(u.id, u.nombre || u.email)}
+                        className="text-xs gap-1 border-destructive/30 text-destructive hover:bg-destructive/10"
+                      >
+                        <Trash2 className="h-3 w-3" /> Eliminar
                       </Button>
                     </div>
                   </div>
