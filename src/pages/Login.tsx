@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, AlertCircle } from "lucide-react";
+import { ArrowRight, AlertCircle, ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import BackgroundBeams from "@/components/BackgroundBeams";
 import { useAuth } from "@/hooks/useAuth";
@@ -14,6 +14,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const { signIn, signUp } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,8 +48,17 @@ const Login = () => {
           <img src="/IngeEdit.png" alt="IngeEdit Logo" className="h-12 w-auto" />
         </Link>
 
-        <div className="glass rounded-xl p-6 glow-border">
-          <h2 className="text-xl font-semibold text-center mb-6">
+        <div className="glass rounded-xl p-6 glow-border relative">
+          <Button
+            type="button"
+            variant="ghost"
+            onClick={() => navigate(-1)}
+            className="absolute top-4 left-4 text-muted-foreground hover:text-foreground flex items-center gap-2 px-2 py-1 h-auto"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            <span>Salir</span>
+          </Button>
+          <h2 className="text-xl font-semibold text-center mb-6 mt-8">
             {isRegister ? "Crear Cuenta" : "Iniciar Sesión"}
           </h2>
 
