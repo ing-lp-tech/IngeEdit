@@ -280,7 +280,7 @@ const Index = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
               <img src="/IngeEdit.png" alt="IngeEdit" className="h-8 w-auto" />
-              <img src="/textEditLogo.png" alt="IngeEdit" className="h-6 w-auto opacity-80" />
+              <img src="/textEditLogo1.png" alt="IngeEdit" className="h-6 w-auto opacity-80" />
             </div>
             <div className="flex items-center gap-6">
               <a href="#servicios" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Servicios</a>
