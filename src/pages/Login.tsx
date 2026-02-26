@@ -49,16 +49,18 @@ const Login = () => {
         </Link>
 
         <div className="glass rounded-xl p-6 glow-border relative">
-          <Button
-            type="button"
-            variant="ghost"
-            onClick={() => navigate(-1)}
-            className="absolute top-4 left-4 text-muted-foreground hover:text-foreground flex items-center gap-2 px-2 py-1 h-auto"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            <span>Salir</span>
-          </Button>
-          <h2 className="text-xl font-semibold text-center mb-6 mt-8">
+          <div className="flex justify-center mb-2">
+            <Button
+              type="button"
+              variant="ghost"
+              onClick={() => navigate(-1)}
+              className="text-muted-foreground hover:text-foreground flex items-center gap-2 px-2 py-1 h-auto"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              <span>Volver a la tienda</span>
+            </Button>
+          </div>
+          <h2 className="text-xl font-semibold text-center mb-6">
             {isRegister ? "Crear Cuenta" : "Iniciar Sesión"}
           </h2>
 
